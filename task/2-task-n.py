@@ -10,10 +10,21 @@ from task.app.main import run
 # - claude-3-7-sonnet@20250219
 # - gemini-2.5-pro
 
+MODELS = {
+    "gpt": "gpt-4o",
+    # "claude": "claude-3-7-sonnet@20250219", # Access denied
+    "claude": "claude-sonnet-4@20250514",
+    "gemini": "gemini-2.5-pro"
+}
+
 run(
     # TODO:
     #  1. Provide `deployment_name` with model from the list above👆
     #  2. Use `n` parameter with value in range from 1 to 5!
+    deployment_name=MODELS["claude"],
+    print_request=False, # Switch to False if you do not want to see the request in console
+    print_only_content=False, # Switch to True if you want to see only content from response    
+    n=5 #Use `n` parameter with value in range from 1 to 5!
 )
 
 # Pay attention to the number of choices in the response!
